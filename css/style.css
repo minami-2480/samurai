@@ -1,0 +1,178 @@
+/* ヘッダー */
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: right;
+    list-style: none;
+}
+
+nav li {
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #f5d70e;
+}
+
+
+.top-triangle {
+    margin: 50px;
+    background: url(../images/top-4.png) center no-repeat,url(../images/top-5.png) center no-repeat;
+    animation: rotate_anime 7s linear infinite;
+    opacity: 0.5;
+}
+@keyframes rotate_anime {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.top-triangle img {
+    opacity: 0.5;
+}
+
+
+.portfolio-title p {
+    display: inline;
+    font-size: 100px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px#61615f;
+}
+
+
+.portfolio-title h1 {
+    font-size: 30px;
+    color: #61615f;
+    -webkit-text-stroke: 1px#f5d70e;
+}
+
+header p {
+    font-size: 25px;
+    color: #61615f;
+    text-align: right;
+    margin-right: 50px;
+}
+
+
+
+/* メイン */
+h2 {
+    color: #f5d70e;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+h2 i {
+    display: inline-block;
+    font-size: 22px;
+    transform: rotate(90deg);
+}
+
+.about {
+    position: relative;
+    background: url(../images/aboutphoto2.png) right bottom no-repeat;
+}
+
+.about img {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+}
+
+.about p {
+    text-align: center;
+    font-size: 25px;
+}
+.about-name {
+    position: relative;
+    width: 700px;
+    height: 400px;
+}
+
+.about-name img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+}
+.about-name h3 {
+    position: absolute;
+    font-size: 60px;
+    top: 15px;
+    left: 120px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px#61615f;
+    border-bottom: 4px solid #61615f;
+}
+
+.about-name h4 {
+    position: absolute;
+    top: 150px;
+    right: 0;
+    font-size: 30px;
+    color: #61615f;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+button {
+    font-size: 20px;
+    color: #61615f;
+    border: none;
+
+    border-bottom: 2px solid #61615f;
+    background-color: #fff;
+}
+
+button i {
+    display: inline-block;
+    font-size: 20px;
+    transform: rotate(90deg);
+}
+
+
+.work-sample ul {
+    list-style: none;
+}
+
+.work-sample img {
+    display: block;
+}
+
+.work-sample i {
+    display: inline-block;
+    font-size: 22px;
+    transform: rotate(90deg);
+}
+
+/* フッター */
+footer {
+    background: url(../images/contactphoto.png)no-repeat center center;
+}
+
+
+@media (min-width: 768px) {
+    
+    header > div {
+        display: flex;
+    }
+    
+    nav-ul {
+        display: flex;
+    }
+
+    .work-sample ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+}
