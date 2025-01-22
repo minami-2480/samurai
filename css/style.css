@@ -1,30 +1,44 @@
+/* PC・スマホ共通スタイル */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1080px;
+    margin: 0 auto 0 auto;
+}
+
 /* ヘッダー */
-nav {
-    position: fixed;
+/* スマホ用ナビゲーション */
+#nav-pc {
+    display: none;
+}
+
+#nav-sp {
+    display: block;
+    background-color: transparent;
+    float: right;
+    padding: 0;
+    border: none;
+}
+
+
+/* TOPの三角回転 */
+.top-triangle {
+    position: relative;
+    z-index: 10;
+    /* top: 100%;
+    height: 300px; */
+}
+
+/* ピンクの三角 */
+.transform-triangle{
     top: 0;
     right: 0;
-    text-align: right;
-    list-style: none;
+    position: absolute;
+    animation: rotate_anime 10s linear infinite;
 }
 
-nav li {
-    width: 100px;
-    text-align: center;
-    display: inline-block;
-}
-
-nav li a {
-    text-decoration: none;
-    color: #f5d70e;
-}
-
-
-.top-triangle {
-    margin: 50px;
-    background: url(../images/top-4.png) center no-repeat,url(../images/top-5.png) center no-repeat;
-    animation: rotate_anime 7s linear infinite;
-    opacity: 0.5;
-}
 @keyframes rotate_anime {
     0% {
         transform: rotate(0deg);
@@ -34,35 +48,71 @@ nav li a {
     }
 }
 
-.top-triangle img {
-    opacity: 0.5;
+/* 青の三角 */
+.transform-triangle2{
+    top: 0;
+    right: 0;
+    position: absolute;
+    animation: rotate_anime 5s linear infinite;
 }
 
+@keyframes rotate_anime {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* メインタイトル　左上 */
+.main-visual {
+    position: relative;
+    height: 600px;
+}
+
+.portfolio-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;    
+}
 
 .portfolio-title p {
-    display: inline;
-    font-size: 100px;
+    top: 0;
+    left: 0;
+    font-size: 87px;
     color: #ffffff;
-    -webkit-text-stroke: 2px#61615f;
+    -webkit-text-stroke: 2px#f5d70e;
+    margin-bottom: 0;
 }
 
-
+/* メインタイトル下　portfolio */
 .portfolio-title h1 {
-    font-size: 30px;
+    /* text-align: center; */
+    /* width: 610px; */
+    margin-top: 0;
+    font-size: 28px;
     color: #61615f;
     -webkit-text-stroke: 1px#f5d70e;
+
 }
 
-header p {
+/* サブタイトル 右下*/
+.sab-title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     font-size: 25px;
     color: #61615f;
-    text-align: right;
-    margin-right: 50px;
 }
 
 
 
 /* メイン */
+
+/* aboutのタグ */
 h2 {
     color: #f5d70e;
     font-weight: normal;
@@ -75,38 +125,42 @@ h2 i {
     transform: rotate(90deg);
 }
 
+/* 自己紹介ページ */
 .about {
-    position: relative;
+    display: block;  
+}
+
+/* 自己紹介の写真側 */
+.about-photo {
+    width: 30%;
+    padding: 100px;
     background: url(../images/aboutphoto2.png) right bottom no-repeat;
 }
 
-.about img {
-    position: absolute;
-    top: 100px;
-    right: 50px;
+/* 自己紹介の名前側 */
+.about-myself {
+    display: block;
+    width: 60%; 
+    position: relative;
 }
 
-.about p {
-    text-align: center;
-    font-size: 25px;
-}
 .about-name {
-    position: relative;
-    width: 700px;
-    height: 400px;
+    width: 100%;
+    height: 300px;
 }
 
 .about-name img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 200px;
 }
+
 .about-name h3 {
     position: absolute;
+    top: 20px;
+    right: 20px;
     font-size: 60px;
-    top: 15px;
-    left: 120px;
     color: #ffffff;
     -webkit-text-stroke: 2px#61615f;
     border-bottom: 4px solid #61615f;
@@ -122,51 +176,184 @@ h2 i {
     bottom: 10px;
 }
 
+/* 自己紹介の詳細 */
 
-button {
+.about-name2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.about-name2 button {
     font-size: 20px;
     color: #61615f;
     border: none;
-
     border-bottom: 2px solid #61615f;
     background-color: #fff;
 }
 
-button i {
+.about-name2 button i {
     display: inline-block;
     font-size: 20px;
     transform: rotate(90deg);
 }
 
-
-.work-sample ul {
-    list-style: none;
+/* ボタン */
+.button-border{
+    border: 1px solid #fff;
+    padding: 20px 40px;
+    position: relative;
+    display: inline-block;
+    color: #61615f;
+    text-decoration: none;
+    background: color #fff;
+}
+  
+  /* 擬似要素の共通スタイル */
+.button-border::before,
+.button-border::after,
+.button-border span::after,
+.button-border span::before {
+  background-color: #f5d70e;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 10;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+ /* 左上へ配置 */
+.button-border::after {
+    width: 0px;
+    height: 2px;
+    top: -1px;
+    left: -1px;
+}
+ /* 右下へ配置 */
+.button-border::before {
+    width: 0px;
+    height: 2px;
+    right: -1px;
+    bottom: -1px;
+}
+ /* 左下へ配置 */
+.button-border span::after {
+    width: 2px;
+    height: 0px;
+    left: -1px;
+    bottom: -1px;
+}
+ /* 右上へ配置 */
+.button-border span::before {
+    width: 2px;
+    height: 0px;
+    top: -1px;
+    right: -1px;
 }
 
-.work-sample img {
-    display: block;
+ /* hover */
+.button-border:hover::after,
+.button-border:hover::before {
+  width: 100%;
+  width: calc(100% + 1px);
 }
 
+.button-border:hover span::after,
+.button-border:hover span::before {
+  height: 100%;
+  height: calc(100% + 1px);
+}
+ /* ボタンの三角の方向 */
+.button-border i {
+    display: inline-block;
+    font-size: 22px;
+    transform: rotate(90deg);
+}
+
+/* workのタグ */
 .work-sample i {
     display: inline-block;
     font-size: 22px;
     transform: rotate(90deg);
 }
 
-/* フッター */
-footer {
-    background: url(../images/contactphoto.png)no-repeat center center;
+/* workの作品例 */
+.work-sample img {
+    display: block;
+    margin: auto;
 }
 
+/* work作品例の題目 */
+.work-sample ul {
+    list-style: none;
+    color: #40403d;
+}
 
+.work-sample ul li p {
+    border-bottom: 3px solid #40403d;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+/* フッター */
+footer {
+    height: 250px;
+    background: url(../images/contact-photo.png)no-repeat center center;
+    background-size: contain;
+    background-position: center;
+}
+
+/* mailアドレス */
+#contact p {
+    font-size: 50px;
+    text-align: center;
+    
+}
+
+/* PC表示のとき */
 @media (min-width: 768px) {
     
     header > div {
         display: flex;
-    }
+    } 
     
-    nav-ul {
+
+    /* PC用ナビゲーションのレイアウト */
+    #nav-pc {
         display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        list-style: none;
+    }
+
+    #nav-pc li {
+        width: 100px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #nav-pc li a {
+        text-decoration: none;
+        color: #f5d70e;
+    }
+
+    #nav-pc a:hover {
+        text-decoration: underline;
+    }
+
+
+    #nav-sp {
+        display: none;
+    }
+
+    .about {
+        display:flex;
+    }
+
+    .about-myself {
+        display: block;
     }
 
     .work-sample ul {

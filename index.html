@@ -11,51 +11,103 @@
 <body>
     <header>
         <div>
-            <div class="portfolio-title">
-                <p>こころ おどる<br>こころ つなぐ</p>
-                <h1>Minami portfolio</h1>
-                
-                <div class="top-triangle">
-                    <img src="images/top-1.png" alt="TOP画像">
-                </div>
-            </div>
-            <nav>
+            <!-- PC用ナビゲーション -->
+            <nav id="nav-pc">
                 <ul>
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">message</a></li>
-                    <li><a href="#">works</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="about/index.html">about</a></li>
+                    <li><a href="about/index.html#message">message</a></li>
+                    <li><a href="index.html#works">works</a></li>
+                    <li><a href="index.html#contact">contact</a></li>
                 </ul>
             </nav>
+            <!-- スマホ用ナビゲーション -->
+            <div id="nav-sp">
+                <button id="close"  onclick="document.getElementById('nav-sp').style.display = 'none'">
+
+                </button>
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a id="logo-sp" href="index.html"  onclick="document.getElementById('nav-sp').style.display = 'none'"> </a>
+                        </li>
+                        <li><a class="menu" href="about/index.html"  onclick="document.getElementById('nav-sp').style.display = 'none'">about</a></li>
+                        <li><a class="menu" href="about/index.html#message"  onclick="document.getElementById('nav-sp').style.display = 'none'">message</a></li>
+                        <li><a class="menu" href="index.html#works"  onclick="document.getElementById('nav-sp').style.display = 'none'">works</a></li>
+                        <li><a class="menu" href="index.html#contact"  onclick="document.getElementById('nav-sp').style.display = 'none'">contact</a></li>
+                    </ul>
+                </nav>
+                <div id="sns">
+                    <a href=""></a>
+                </div>
+            </div>
+            <!-- portfolioタイトル -->
+            <div class="main-visual">
+                <div class="portfolio-title">
+                    <p>こころ おどる<br>こころ つなぐ</p>
+                    <h1>Minami portfolio</h1>
+                    <!-- 回転する三角 -->
+                    <div class="top-triangle">
+                        <img src="images/top-1.png" alt="TOP画像">
+                        <div class="transform-triangle">
+                            <img src="images/top-2.png" alt="TOP画像">
+                        </div>
+                        <div class="transform-triangle2">
+                            <img src="images/top-3.png" alt="TOP画像">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p>心躍るデザインでクライアントとそれをみる人を繋いでいく</p>
+        <div class="sab-title">
+            <p>
+                心躍るデザインでクライアントとそれをみる人を繋いでいく
+            </p>
+        </div>
     </header>
     <main>
+    <h2>about <i class="bi bi-triangle"></i></h2>
         <div class="about">
-            <h2>about <i class="bi bi-triangle"></i></h2>
-            <div class="about-name">
-             <img src="images/aboutphoto.png" alt="三角が重なった画像">
-             <h3>にしやま　みなみ</h3>
-             <h4>Nishiyama Minami</h4>
+            <div class="about-myself">
+                <div class="about-name">
+                    <img src="images/aboutphoto.png" alt="三角が重なった画像">
+                    <h3>にしやま　みなみ</h3>
+                    <h4>Nishiyama Minami</h4>
+                </div>
+                <div class="about-name2">
+                    <p>
+                    三重県伊勢市生まれ。<br>看護師として働き、三児の母となる。<br>働き方を見直しwebデザイナーとして<br>新たな世界へ挑戦する。
+                    </p>
+                    <a href="#" class="button-border">
+                        <span>read more　<i class="bi bi-triangle"></i></span>
+                    </a>
+                </div>
             </div>
-            <img src="images/aboutphoto3.png" alt="私の顔写真">
-            <p>
-               三重県伊勢市生まれ。<br>看護師として働き、三児の母となる。<br>働き方を見直しwebデザイナーとして<br>新たな世界へ挑戦する。
-            </p>
-            <button><a href="#">read more  <i class="bi bi-triangle"></i></a></button>
+            <div class="about-photo">
+                <img src="images/aboutphoto3.png" alt="私の顔写真">
+            </div>
         </div>
-        <div class="works">
+        <div id="works">
             <h2>works <i class="bi bi-triangle"></i></h2>
             <div class="work-sample">
                 <ul>
                     <li>
-                        <img src="https://placehold.jp/150x150.png" alt="2024.12website"><i class="bi bi-triangle"></i>2024.12website
+                        <img src="https://placehold.jp/150x150.png" alt="2024.12website">
+                        <p>
+                            <i class="bi bi-triangle"></i>2024.12website
+                        </p>
                     </li>
                     <li>
-                        <img src="https://placehold.jp/150x150.png" alt=""><i class="bi bi-triangle"></i>2024.12website
+                        <img src="https://placehold.jp/150x150.png" alt="2024.12website">
+                        <p>
+                            <i class="bi bi-triangle"></i>2024.12website
+                        </p>
                     </li>
                     <li>
-                        <img src="https://placehold.jp/150x150.png" alt=""><i class="bi bi-triangle"></i>2024.12website
+                        <img src="https://placehold.jp/150x150.png" alt="2024.12website">
+                        <p>
+                            <i class="bi bi-triangle"></i>2024.12website
+                        </p>
                     </li>
                 </ul>
             </div>
@@ -63,9 +115,11 @@
         </div>
     </main>
     <footer>
-        <div class="contact">
+        <div id="contact">
             <h2>contact <i class="bi bi-triangle"></i></h2>
-            <i class="bi bi-envelope"></i>xx.com
+            <p>
+                <a href=""><i class="bi bi-envelope"></i>xx.com</a>
+            </p>
         </div>
     </footer>
 </body>
