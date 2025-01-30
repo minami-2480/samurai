@@ -1,4 +1,4 @@
-/* PC・スマホ共通スタイル */
+/* --------PC・スマホ共通スタイル-------- */
 * {
     box-sizing: border-box;
 }
@@ -8,9 +8,72 @@ body {
     margin: 0 auto 0 auto;
 }
 
-/* ヘッダー */
-/* スマホ用ナビゲーション */
-#nav-pc {
+/* --------ヘッダー-------- */
+.header-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4%;
+}
+
+/* --------スマホ用ナビゲーション 開閉ボタン--------*/
+.navbtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    padding: 5px 0;
+}
+
+.navbtn span {
+    display: block;
+    margin: 10px;
+    border-bottom: 3px solid #333;
+}
+
+/* ボタンをクリックしたときのspanの動作（三本線が×になる） */
+.navbtn span trigger:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);/* Y軸方向に12px移動、時計回りに45度回転 */
+    transition: .2s;/* 0.2秒の速さで */
+}
+
+.navbtn span trigger:nth-child(2) {
+    opacity: 0;/* 真ん中の線は不要なので透明にする */
+}
+
+.navbtn span trigger:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);/* Y軸方向に-13px移動、半時計回りに45度回転 */
+    transition: .2s;/* 0.2秒の速さで */
+}
+
+/* --------ナビゲーション-------- */
+.header-navmenu {
+    display: none;
+    position: absolute;
+    top: 95px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    background-color: red;
+}
+
+.header-navmenu a {
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #f5d70e;
+}
+
+.header-navmenu a :hover {
+    opacity: .9;
+    text-decoration: underline;
+}
+
+/* #nav-pc {
     display: none;
 }
 
@@ -20,19 +83,75 @@ body {
     float: right;
     padding: 0;
     border: none;
+} */
+
+/* --------メイン-------- */
+
+/* --------各コンテナ共通-------- */
+.about-container, .works-container,.message-container,.footer-continer {
+    padding: 50px 4% 0;
+}
+
+/* --------タグのデザインと三角の方向-------- */
+h2 {
+    color: #f5d70e;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+h2 i {
+    display: inline-block;
+    font-size: 1rem;
+    transform: rotate(90deg);
 }
 
 
-/* TOPの三角回転 */
+/* --------メインタイトル-------- */
+/*　こころおどるこころつなぐ */
+.main-visual {
+    /* display: flex; */
+    justify-content: center;
+}
+
+.portfolio-title p {
+    font-size: 2rem;
+    color: #ffffff;
+    -webkit-text-stroke: 2px#f5d70e;
+    margin-bottom: 0;
+}
+
+/* メインタイトル下　minami portfolio */
+.portfolio-title h1 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #61615f;
+    -webkit-text-stroke: 1px#f5d70e;
+}
+
+/* サブタイトル 右下 心躍る… */
+.sab-title {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #61615f;
+}
+
+/* ---------メイン画像 三角回転--------- */
+
+/* 黄色の三角 */
 .top-triangle {
+    /* flex: 0 0 100px; */
     position: relative;
-    z-index: 10;
-    /* top: 100%;
-    height: 300px; */
+    margin-left: 15%;
+    margin-right: 5%;
+}
+
+.top-triangle img {
+    max-width: 100%;
+    padding: 3px;
 }
 
 /* ピンクの三角 */
-.transform-triangle{
+.transform-triangle {
     top: 0;
     right: 0;
     position: absolute;
@@ -63,82 +182,73 @@ body {
     100% {
         transform: rotate(360deg);
     }
-}
+} 
 
 
-/* メインタイトル　左上 */
-.main-visual {
-    position: relative;
-    height: 600px;
-}
+/* --------aboutページ-------- */
 
-.portfolio-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 11;    
-}
-
-.portfolio-title p {
-    top: 0;
-    left: 0;
-    font-size: 87px;
+/* 名前のデザイン */
+.about-container h3 {
+    width: 200px;
+    font-size: 1.5rem;
     color: #ffffff;
-    -webkit-text-stroke: 2px#f5d70e;
+    -webkit-text-stroke: 2px#61615f;
+    border-bottom: 4px solid #f5d70e;
     margin-bottom: 0;
 }
 
-/* メインタイトル下　portfolio */
-.portfolio-title h1 {
-    /* text-align: center; */
-    /* width: 610px; */
+.about-container h4 {
+    font-size: 1rem;
+    color: #61615f;
     margin-top: 0;
-    font-size: 28px;
-    color: #61615f;
-    -webkit-text-stroke: 1px#f5d70e;
-
+    margin-bottom: 2%;
+    /* right: 10px;
+    bottom: 10px; */
 }
 
-/* サブタイトル 右下*/
-.sab-title {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 25px;
-    color: #61615f;
+.about-name {
+    /* position: relative; */
+    width: 70%;
+    height: 70px;
+    text-align: center;
+    background: url(../images/aboutphoto1.png) left top no-repeat;
+    background-size: 25%;
 }
 
-
-
-/* メイン */
-
-/* aboutのタグ */
-h2 {
-    color: #f5d70e;
-    font-weight: normal;
-    font-size: 25px;
+/* aboutのプロフィール詳細 */
+.profile-box {
+    display: flex;
+    justify-content: center;  
+    background: url(../images/aboutphoto2.png) right bottom no-repeat;
+    background-size: 20%;
 }
 
-h2 i {
-    display: inline-block;
-    font-size: 22px;
-    transform: rotate(90deg);
+.profile-text {
+    text-align: center;
 }
 
-/* 自己紹介ページ */
-.about {
-    display: block;  
+.profile-text p {
+    font-size: 0.7rem;
 }
 
-/* 自己紹介の写真側 */
+.profile-img {
+    margin-left: 3%;
+    flex: 0 0 100px;
+}
+
+.profile-img img {
+    max-width: 100%;
+}
+
+/* 自己紹介の写真側 
 .about-photo {
     width: 30%;
     padding: 100px;
     background: url(../images/aboutphoto2.png) right bottom no-repeat;
 }
 
-/* 自己紹介の名前側 */
-.about-myself {
+自己紹介の名前側 
+.a {
     display: block;
     width: 60%; 
     position: relative;
@@ -176,7 +286,7 @@ h2 i {
     bottom: 10px;
 }
 
-/* 自己紹介の詳細 */
+自己紹介の詳細 
 
 .about-name2 {
     text-align: center;
@@ -191,21 +301,34 @@ h2 i {
     background-color: #fff;
 }
 
-.about-name2 button i {
+
+*/
+
+/* ボタン */
+
+/* .button-border {
+    font-size: 0.7rem;
+    color: #61615f;
+    border: none;
+    border-bottom: 2px solid #61615f;
+    /* background-color: #fff; 
+} */
+
+ /* ボタンの三角の方向 */
+.button-border i {
     display: inline-block;
-    font-size: 20px;
+    font-size: 0.7rem;
     transform: rotate(90deg);
 }
 
-/* ボタン */
-.button-border{
+/* ボタンデザイン */
+.button-border {
     border: 1px solid #fff;
-    padding: 20px 40px;
     position: relative;
     display: inline-block;
     color: #61615f;
     text-decoration: none;
-    background: color #fff;
+    /* background: color #fff; */
 }
   
   /* 擬似要素の共通スタイル */
@@ -262,13 +385,8 @@ h2 i {
   height: 100%;
   height: calc(100% + 1px);
 }
- /* ボタンの三角の方向 */
-.button-border i {
-    display: inline-block;
-    font-size: 22px;
-    transform: rotate(90deg);
-}
 
+/* --------work-------- */
 /* workのタグ */
 .work-sample i {
     display: inline-block;
@@ -296,70 +414,307 @@ h2 i {
     margin-bottom: 80px;
 }
 
-/* フッター */
-footer {
-    height: 250px;
+/* --------フッター-------- */
+.footer-continer p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer-continer p {
     background: url(../images/contact-photo.png)no-repeat center center;
     background-size: contain;
     background-position: center;
+    padding: 10%;
 }
 
-/* mailアドレス */
-#contact p {
-    font-size: 50px;
-    text-align: center;
-    
+
+/*　--------aboutの下層ページ---------- */
+.profiledetail-box {
+    display: flex;
+    justify-content: center; 
 }
+
+.profiledetail-text {
+    flex: 2;
+}
+
+.profiledetail-text p {
+    font-size: 0.5rem;
+    text-align: start;
+    color: #61615f;
+}
+
+.profiledetail-img {
+    margin-left: 3%;
+    flex: 1;
+}
+
+.profiledetail-img img {
+    max-width: 100%;
+}
+
+/* 特技と趣味 */
+h5 {
+    color: #61615f;
+    font-weight: normal;
+    font-size: 0.5rem;
+    margin-bottom: 0;
+}
+
+h5 i {
+    display: inline-block;
+    font-size: 0.5rem;
+    transform: rotate(90deg);
+}
+
+.profiledetail-text2 p {
+    color: #61615f;
+}
+
+/* --------aboutの下層ページのmessage-------- */
+
+/* タイトル2つ */
+h6 {
+    width: 350px;
+    color: #61615f;
+    font-weight: normal;
+    font-size: 1rem;
+    margin-bottom: 0;
+    border-bottom: 3px solid #919389;
+    margin-top: 20px;
+}
+
+h6 i {
+    display: inline-block;
+    font-size: 1rem;
+    transform: rotate(90deg);
+}
+
+/* こころおどるつなぐの意味は？ */
+.message-text1 p {
+    font-size: 0.68rem;
+    color: #61615f;
+}
+
+/* わたしの強み */
+.message-text2 {
+    background-image: url(../images/aboutphoto2.png);
+    background-position: right bottom ;
+    background-repeat: no-repeat;
+    background-size: 30% auto;
+}
+.message-text2 li {
+    font-size: 0.7rem;
+    list-style-type: decimal;
+    color: #61615f;
+}
+
+
 
 /* PC表示のとき */
 @media (min-width: 768px) {
-    
-    header > div {
-        display: flex;
-    } 
-    
-
-    /* PC用ナビゲーションのレイアウト */
-    #nav-pc {
-        display: flex;
-        position: fixed;
-        top: 0;
-        right: 0;
-        list-style: none;
+/* --------ヘッダー全体-------- */
+    .header-container {
+        margin: 0 auto;
+        max-width: 1000px;
+        /* padding: 20px; */
     }
 
-    #nav-pc li {
-        width: 100px;
-        text-align: center;
-        display: inline-block;
-    }
-
-    #nav-pc li a {
-        text-decoration: none;
-        color: #f5d70e;
-    }
-
-    #nav-pc a:hover {
-        text-decoration: underline;
-    }
-
-
-    #nav-sp {
+/* --------スマホ用ナビゲーション開閉ボタン-------- */
+    .navbtn {
         display: none;
     }
 
-    .about {
-        display:flex;
+    /* --------ナビゲーション-------- */
+    .header-navmenu {
+        top: 0;
+        right: 0;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end;
+        background: none;
+        list-style: none;
     }
 
-    .about-myself {
-        display: block;
+/* --------メインタイトル--------*/
+
+    .main-visual {
+        display: flex;
     }
 
+    .portfolio-title {
+        flex: 1;
+    }
+
+    .top-triangle {
+        flex: 1;
+    }
+    /* こころおどるこころつなぐ*/ 
+    .portfolio-title p {
+        font-size: 4.25rem;
+        margin-top: 50px;
+    }
+
+    /* メインタイトル下　minami portfolio */
+    .portfolio-title h1 {
+        font-size: 2rem;
+    }
+    
+    /* サブタイトル 右下 心躍る… */
+    .sab-title {
+        font-size: 1.7rem;
+    }
+
+    .top-triangle  {
+        text-align: right;
+    }
+
+    /* ピンク三角 */
+    /* .transform-triangle {
+        top: 0;
+        right: 0;
+    } */
+    
+    
+    /* 青の三角 */
+    /* .transform-triangle2 {
+        top: 0;
+        right: 0;
+    } */
+
+/* --------各コンテナ共通-------- */
+    .about-container, .works-container {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 60px 20px 0;
+    }
+    
+/* --------タグのデザインと三角の方向-------- */
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h2 i {
+        font-size: 1.5rem;
+    }
+
+
+/* --------aboutのプロフィール-------- */
+
+    /* 名前　ひらがな */
+    .about-container h3 {
+        font-size: 3rem;
+        width: 400px;
+    }
+    
+    /* 名前　英語 */
+    .about-container h4 {
+        font-size: 2rem;
+    }
+
+    /* プロフィール詳細 */
+    .profile-text p {
+        font-size: 1.5rem;
+        margin-top: 50px;
+    }
+
+    .profile-box {
+        background-size: 18%;
+    } 
+    
+    .button-border {
+        font-size: 1.5rem;
+    }
+
+    .button-border i {
+        font-size: 1.2rem;
+    }
+
+    .profile-img {
+        flex: 0 0 400px;
+        margin-left: 5%;
+    }
+    
+    .profile-img img {
+        max-width: 80%;
+    }
+    
     .work-sample ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
     }
     
+    .footer-continer {
+        margin: 0;
+        min-width: 1000px;
+        /* padding: 60px 20px 20px; */
+    }
+    
+    h5, h5 i {
+        font-size: 1.7rem;
+    }
+    .footer-continer p {
+        font-size: 2rem;
+    }
+    
+/* --------aboutの下層ページのabout-------- */
+    .profiledetail-text > p {
+        font-size: 1.4rem;
+    }
+
+    .profiledetail-text2 > p {
+        font-size: 1.5rem;
+    }
+/* --------aboutの下層ページのmessage-------- */
+    h6 {
+        width: 700px;
+    }
+
+    h6, h6 i {
+        font-size: 1.9rem;
+    }
+
+    /* こころおどるつなぐの意味は？ */
+    .message-text1 p {
+        font-size: 1.5rem;
+    }
+
+    /* わたしの強み */
+    .message-text2 li{
+        font-size: 1.5rem;
+    }
+        /* header > div {
+            display: flex;
+        } 
+         */
+    
+        /* PC用ナビゲーションのレイアウト */
+        /* #nav-pc {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: 0;
+            list-style: none;
+        }
+    
+        #nav-pc li {
+            width: 100px;
+            text-align: center;
+            display: inline-block;
+        }
+    
+        #nav-pc li a {
+            text-decoration: none;
+            color: #f5d70e;
+        }
+    
+        #nav-pc a:hover {
+            text-decoration: underline;
+        }
+    
+    
+        #nav-sp {
+            display: none;
+        } */
 }
